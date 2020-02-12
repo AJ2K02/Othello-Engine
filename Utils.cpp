@@ -4,6 +4,7 @@
 
 #include <cassert>
 #include <string>
+//#include <intrin.h>
 
 MoveIndex human_coords2int(const std::string& str) {
 	assert(str.size() == 2);
@@ -37,4 +38,5 @@ int popcnt(const bs64 x) {
 			++cnt;
 	return cnt;*/
 	return __builtin_popcountll(x);
-}
+	//return __popcnt64(x);
+}	

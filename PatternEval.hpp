@@ -131,11 +131,11 @@ class Evaluator {
     std::array<_weight_t, N_PATTERNS> getWeights() const { return m_patterns_w; }
     _weight_t getBias() const { return m_bias; }
 
-    template<unsigned NPatterns, unsigned NDiscs>
+    template<std::size_t NPatterns, std::size_t NDiscs>
     std::array<unsigned, NPatterns> getPatterns(const std::array<uint8_t, 64>& board,
                         const std::array<std::array<unsigned, NDiscs>, NPatterns>& discs);
 
-    template<unsigned NPatterns, unsigned NDiscs>
+    template<std::size_t NPatterns, std::size_t NDiscs>
     void updatePattern(const std::array<uint8_t, 64>& board,
                        const int result,
                        const unsigned pattern_n,
@@ -163,7 +163,7 @@ class Evaluator {
 };
 
 
-template<unsigned NPatterns, unsigned NDiscs>
+template<std::size_t NPatterns, std::size_t NDiscs>
 std::array<unsigned, NPatterns> Evaluator::getPatterns(const std::array<uint8_t, 64>& board,
                         const std::array<std::array<unsigned, NDiscs>, NPatterns>& discs) {
     CESTL std::array<unsigned, NDiscs> w = createWeights<NDiscs>();
@@ -178,7 +178,7 @@ std::array<unsigned, NPatterns> Evaluator::getPatterns(const std::array<uint8_t,
 }
 
 
-template<unsigned NPatterns, unsigned NDiscs>
+template<std::size_t NPatterns, std::size_t NDiscs>
 void Evaluator::updatePattern(const std::array<uint8_t, 64>& board,
                               const int result, 
                               const unsigned pattern_n,
